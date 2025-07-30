@@ -1,0 +1,19 @@
+import pygame
+pygame.init()
+screen = pygame.display.set_mode((600,400))
+pygame.display.set_caption("Mouse events")
+clock = pygame.time.Clock()
+circle = (300, 200)
+running = True
+while running:
+  screen.fill((0,0,255))
+  for event in pygame.event.get():
+    if event.type == pygame.QUIT:
+      running = False
+    if event.type == pygame.MOUSEBUTTONDOWN:
+      circle = pygame.mouse.get_pos()
+
+  pygame.draw.circle(screen,(255,255,255),circle,20)
+  pygame.display.update()
+  clock.tick(60)
+pygame.quit()
