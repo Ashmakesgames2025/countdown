@@ -7,9 +7,10 @@ clock = pygame.time.Clock()
 x = 300
 y = 200
 radius = 20
-speedx = 2
-speedy = 2
+speedx = 4
+speedy = 4
 a,b,c = 255,255,255
+d,e,f = -a,-b,-c
 running = True
 while running:
   screen.fill((0,0,255))
@@ -34,7 +35,8 @@ while running:
         b = 255
       if c < 0:
         c = 255
-    screen.fill((-a,-b,-c))
+    d,e,f = 255-a, 255-b, 255-c
+    screen.fill((d,e,f))
     pygame.draw.circle(screen,(a,b,c),(x,y),radius)
     pygame.display.update()
     clock.tick(60)
