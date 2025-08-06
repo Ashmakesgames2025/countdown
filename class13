@@ -1,0 +1,19 @@
+import pygame
+pygame.init()
+screen = pygame.display.set_mode((600,400))
+pygame.display.set_caption("building Haus")
+running = True
+while running:
+  screen.fill((135,206,235))#sky
+  pygame.draw.rect(screen,(210,180,140),(200,200,200,150))#house body
+  pygame.draw.rect(screen,(34,139,34), (0,300,600,100))#grass
+  pygame.draw.polygon(screen,(255,0,0),[(200,200),(300,120),(400,200)])#roof
+  pygame.draw.circle(screen,(255,255,0),(80,80),40) #sun
+  pygame.draw.rect(screen,(165,42,42),(0,300,600,100))#door
+  pygame.draw.line(screen,(0,0,0),(300,120),(300,40),5)#pole
+  pygame.draw.rect(screen,(0,255,0),(302,40,50,30))#flag
+  for event in pygame.event.get():
+    if event.type == pygame.QUIT:
+      running = False
+  pygame.display.update()
+pygame.quit()
