@@ -1,0 +1,67 @@
+import pygame
+pygame.init()
+screen = pygame.display.set_mode((600,400))
+pygame.display.set_caption("bouncing BALL")
+clock = pygame.time.Clock()
+
+z = 300
+w = 200
+radius2 = 40
+x = 300
+y = 200
+radius = 20
+speedw = 5
+speedz = 3
+speedx = 4
+speedy = 4
+a,b,c = 255,255,255
+d,e,f = -a,-b,-c
+running = True
+while running:
+  for event in pygame.event.get():
+    if event.type == pygame.QUIT:
+      running = False
+  w += speedw
+  x += speedx
+  y += speedy
+  z += speedz
+  if x+radius >= 600 or x-radius <= 0:
+    speedx *= -1
+    a -= 10
+    c -= 5
+    if a < 0:
+      a = 255
+    if c < 0:
+      c = 255
+  if y+radius >= 400 or y-radius <= 0:
+    speedy *= -1
+    b -= 10
+    c -= 5
+    if b < 0:
+      b = 255
+    if c < 0:
+      c = 255
+
+  if z+radius2 >= 600 or z-radius2 <= 0:
+    speedz *= -1
+    a += 10
+    c += 5
+    if a > 255:
+      a = 0
+    if c > 255:
+      c = 0
+  if w+radius2 >= 400 or w-radius2 <= 0:
+    speedw *= -1
+    b += 10
+    c += 5
+    if b > 255:
+      b = 0
+    if c > 255:
+      c = 0
+  d,e,f = 255-a, 255-b, 255-c
+  screen.fill((d,e,f))
+  pygame.draw.circle(screen,(a,b,c),(x,y),radius)
+  pygame.draw.circle(screen,(b,c,a),(z,w),radius2)
+  pygame.display.update()
+  clock.tick(60)
+pygame.quit()
