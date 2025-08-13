@@ -1,0 +1,27 @@
+import pygame
+pygame.init()
+screen = pygame.display.set_mode((600,400))
+pygame.display.set_caption("SPACE")
+roket = pygame.image.load("roket.png")
+Resize = pygame.transform.scale(roket,(30,30))
+running = True
+while running:
+  screen.fill((0,0,0))
+  stars = [(474,39),(39,374),(400,50),(20,357),(99,43),(394,111),(23,300),(40,300),(300,200),(8,92),(87,68),(100,54),(69,69)]
+  for pos in stars:
+    pygame.draw.circle(screen,(255,255,255),pos,5)
+  pygame.draw.circle(screen,(255,165,0),(300,60),40)
+  pygame.draw.circle(screen,(0,255,165),(8,6),60)
+  pygame.draw.circle(screen,(255,165,0),(100,200),20)
+  pygame.draw.circle(screen,(192,192,192),(80,360),10)
+  pygame.draw.circle(screen,(105,105,105),(87,356),5)
+  pygame.draw.circle(screen,(105,105,105),(76,364),4)
+  screen.blit(Resize,(100,100))
+  pygame.draw.ellipse(screen,(0,255,0),(250,150,80,30))
+  pygame.draw.ellipse(screen,(173,216,230),(260,140,40,20))
+
+for event in pygame.event.get():
+  if event.type == pygame.QUIT:
+    running = False
+  pygame.display.update()
+pygame.quit()
